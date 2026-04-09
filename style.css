@@ -114,3 +114,18 @@ body {
   overflow-y: auto;
   white-space: pre-wrap;
 }
+
+/* 🔥 FIX MONACO SUGGESTION VISIBILITY */
+.monaco-editor .suggest-widget {
+  color: white !important;
+  background: #1e293b !important;
+}
+
+.monaco-editor .suggest-widget .monaco-list-row {
+  color: white !important;
+}
+
+.monaco-editor .suggest-widget .monaco-list-row.focused {
+  background: #3b82f6 !important;
+  color: white !important;
+}
