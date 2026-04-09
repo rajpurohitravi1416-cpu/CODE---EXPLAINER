@@ -9,6 +9,28 @@ require(['vs/editor/editor.main'], function () {
     theme: "vs-dark",
     automaticLayout: true
   });
+
+  monaco.languages.registerCompletionItemProvider('javascript', {
+    provideCompletionItems: () => {
+      return {
+        suggestions: [
+          {
+            label: "public",
+            kind: monaco.languages.CompletionItemKind.Keyword,
+            insertText: "public ",
+            detail: "keyword"
+          },
+          {
+            label: "print",
+            kind: monaco.languages.CompletionItemKind.Function,
+            insertText: "console.log()",
+            detail: "log output"
+          }
+        ]
+      };
+    }
+  });
+
 });
 
 let feature = "explain";
