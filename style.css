@@ -1,48 +1,116 @@
 body {
   margin: 0;
-  font-family: sans-serif;
-  background: #0b1220;
-  color: white;
+  font-family: Inter, sans-serif;
+  background: #0b0f17;
+  color: #e2e8f0;
 }
 
+/* LAYOUT */
 .container {
   display: flex;
   height: 100vh;
 }
 
+/* SIDEBAR */
 .sidebar {
   width: 220px;
-  background: #111827;
+  background: #020617;
   padding: 20px;
+  border-right: 1px solid #1e293b;
 }
 
 .sidebar button {
-  display: block;
   width: 100%;
-  margin: 10px 0;
   padding: 10px;
-  background: #1f2937;
+  margin: 6px 0;
+  background: transparent;
   border: none;
-  color: white;
+  color: #94a3b8;
   cursor: pointer;
+  text-align: left;
 }
 
+.sidebar button:hover {
+  color: white;
+}
+
+/* MAIN */
 .main {
   flex: 1;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 }
 
-textarea {
-  width: 100%;
-  height: 200px;
-  background: #111;
+/* TOPBAR */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* 🔥 PRIMARY BUTTON (RUN) */
+.btn.primary {
+  background: #3b82f6;
   color: white;
-  border: 1px solid #333;
-  padding: 10px;
 }
 
-pre {
-  background: #111;
+/* 🔥 SECONDARY BUTTON (OPPOSITE STYLE) */
+.btn.secondary {
+  background: transparent;
+  border: 1px solid #3b82f6;
+  color: #3b82f6;
+}
+
+/* HOVER EFFECT */
+.btn.secondary:hover {
+  background: #3b82f6;
+  color: white;
+}
+
+/* SPLIT VIEW */
+.split {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* PANELS */
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #020617;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+}
+
+/* PANEL HEADER */
+.panel-header {
   padding: 10px;
-  margin-top: 10px;
+  border-bottom: 1px solid #1e293b;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* EDITOR */
+.editor {
+  flex: 1;
+}
+
+/* OUTPUT */
+.output {
+  padding: 10px;
+  overflow-y: auto;
+  white-space: pre-wrap;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Code AI Pro</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -9,11 +10,12 @@
 
 <div class="container">
 
-  <!-- Sidebar -->
+  <!-- 🔥 SIDEBAR -->
   <aside class="sidebar">
     <h2>⚡ Code AI</h2>
 
     <button onclick="setFeature('explain')">Explain</button>
+    <button onclick="setFeature('line-explain')">Line Explainer</button>
     <button onclick="setFeature('convert')">Convert</button>
     <button onclick="setFeature('optimize')">Optimize</button>
     <button onclick="setFeature('compress')">Compress</button>
@@ -22,43 +24,95 @@
     <button onclick="setFeature('image')">Image → Code</button>
   </aside>
 
-  <!-- Main -->
+  <!-- 🔥 MAIN -->
   <main class="main">
 
-    <h3 id="title">Explain Code</h3>
+    <!-- 🔥 TOPBAR -->
+    <div class="topbar">
+      <h2 id="title">Explain Code</h2>
 
-    <!-- Language selectors (only for convert) -->
-    <div id="langSelectors" style="display:none;">
-      <select id="fromLang">
-        <option>python</option>
-        <option>java</option>
-        <option>javascript</option>
-        <option>c++</option>
-      </select>
-
-      <select id="toLang">
-        <option>javascript</option>
-        <option>python</option>
-        <option>java</option>
-        <option>c++</option>
-      </select>
+      <div class="actions">
+        <button class="btn secondary" onclick="copyOutput()">Copy</button>
+        <button class="btn secondary" onclick="downloadCode()">Download</button>
+        <button class="btn primary" onclick="run()">Run</button>
+      </div>
     </div>
 
-    <!-- Image input -->
+    <!-- 🔥 LANGUAGE SELECTORS -->
+    <div id="langSelectors" class="lang-box" style="display:none;">
+
+      <select id="fromLang">
+        <option value="python">Python</option>
+        <option value="javascript">JavaScript</option>
+        <option value="java">Java</option>
+        <option value="c">C</option>
+        <option value="cpp">C++</option>
+        <option value="csharp">C#</option>
+        <option value="go">Go</option>
+        <option value="ruby">Ruby</option>
+        <option value="php">PHP</option>
+        <option value="typescript">TypeScript</option>
+        <option value="swift">Swift</option>
+        <option value="kotlin">Kotlin</option>
+        <option value="rust">Rust</option>
+        <option value="dart">Dart</option>
+      </select>
+
+      <button class="btn secondary" onclick="swapLang()">⇄</button>
+
+      <select id="toLang">
+        <option value="javascript">JavaScript</option>
+        <option value="python">Python</option>
+        <option value="java">Java</option>
+        <option value="c">C</option>
+        <option value="cpp">C++</option>
+        <option value="csharp">C#</option>
+        <option value="go">Go</option>
+        <option value="ruby">Ruby</option>
+        <option value="php">PHP</option>
+        <option value="typescript">TypeScript</option>
+        <option value="swift">Swift</option>
+        <option value="kotlin">Kotlin</option>
+        <option value="rust">Rust</option>
+        <option value="dart">Dart</option>
+      </select>
+
+    </div>
+
+    <!-- 🔥 FILE INPUT -->
+    <input type="file" id="fileInput" />
+
+    <!-- 🔥 IMAGE OCR -->
     <input type="file" id="imageInput" style="display:none;" />
 
-    <!-- Textarea -->
-    <textarea id="input"></textarea>
+    <!-- 🔥 SPLIT SCREEN -->
+    <div class="split">
 
-    <button onclick="run()">Run</button>
+      <!-- LEFT: CODE -->
+      <div class="panel">
+        <div class="panel-header">Code</div>
+        <div id="editor" class="editor"></div>
+      </div>
 
-    <pre id="output"></pre>
+      <!-- RIGHT: OUTPUT -->
+      <div class="panel">
+        <div class="panel-header">Explanation</div>
+        <pre id="output" class="output"></pre>
+      </div>
+
+    </div>
 
   </main>
 
 </div>
 
+<!-- 🔥 OCR -->
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@4/dist/tesseract.min.js"></script>
+
+<!-- 🔥 MONACO -->
 <script src="https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
+
+<!-- 🔥 APP -->
 <script src="app.js"></script>
 
 </body>
