@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Code AI Pro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>⚡ Code AI</h2>
+
+    <button onclick="setFeature('explain')">Explain</button>
+    <button onclick="setFeature('convert')">Convert</button>
+    <button onclick="setFeature('optimize')">Optimize</button>
+    <button onclick="setFeature('compress')">Compress</button>
+    <button onclick="setFeature('prompt')">Prompt → Code</button>
+    <button onclick="setFeature('fill')">Half Code</button>
+    <button onclick="setFeature('image')">Image → Code</button>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <h3 id="title">Explain Code</h3>
+
+    <!-- Language selectors (only for convert) -->
+    <div id="langSelectors" style="display:none;">
+      <select id="fromLang">
+        <option>python</option>
+        <option>java</option>
+        <option>javascript</option>
+        <option>c++</option>
+      </select>
+
+      <select id="toLang">
+        <option>javascript</option>
+        <option>python</option>
+        <option>java</option>
+        <option>c++</option>
+      </select>
+    </div>
+
+    <!-- Image input -->
+    <input type="file" id="imageInput" style="display:none;" />
+
+    <!-- Textarea -->
+    <textarea id="input"></textarea>
+
+    <button onclick="run()">Run</button>
+
+    <pre id="output"></pre>
+
+  </main>
+
+</div>
+
+<script src="https://unpkg.com/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
