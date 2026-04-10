@@ -46,37 +46,37 @@ function setFeature(f) {
   langBox.style.display = "none";
   imageInput.style.display = "none";
 
-  if (f === "explain") {
+  if (feature === "explain") {
     title.innerText = "Explain Code";
     textarea.placeholder = "Paste code to explain...";
 
-  } else if (f === "convert") {
+  } else if (feature === "convert") {
     title.innerText = "Convert Code";
     textarea.placeholder = "Paste code to convert...";
     langBox.style.display = "block";
 
-  } else if (f === "optimize") {
+  } else if (feature === "optimize") {
     title.innerText = "Optimize Code";
     textarea.placeholder = "Paste code to optimize...";
 
-  } else if (f === "compress") {
+  } else if (feature === "compress") {
     title.innerText = "Compress Code";
     textarea.placeholder = "Paste large code...";
 
-  } else if (f === "prompt") {
+  } else if (feature === "prompt") {
     title.innerText = "Prompt → Code";
     textarea.placeholder = "Describe what you want...";
 
-  } else if (f === "fill") {
+  } else if (feature === "fill") {
     title.innerText = "Complete Code";
     textarea.placeholder = "Paste half code...";
 
-  } else if (f === "image") {
+  } else if (feature === "image") {
     title.innerText = "Image → Code";
     textarea.placeholder = "Upload image...";
     imageInput.style.display = "block";
   }
-else if (f === "line-explain") {
+else if (feature === "line-explain") {
   title.innerText = "Explain Selected Line";
 }
   
@@ -97,7 +97,7 @@ if (!input) {
   let detectedLang = detectLanguage(input);if (editor) {
   let lang = "plaintext";
 
-  if (f === "explain" || f === "optimize" || f === "compress") {
+  if (feature === "explain" || feature === "optimize" || feature === "compress") {
     lang = "javascript"; // temporary default
   }
 
