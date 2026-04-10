@@ -41,7 +41,7 @@ function setFeature(f) {
   const title = document.getElementById("title");
   const textarea = document.getElementById("input");
   const langBox = document.getElementById("langSelectors");
-  const imageInput = document.getElementById("imageInput");
+  const imageInput = ("imageInput");
   
   langBox.style.display = "none";
   imageInput.style.display = "none";
@@ -92,7 +92,7 @@ if (!input) {
 }
 
   document.getElementById("output").textContent = "⚡ Processing...";
-switchTab("output");
+
 
   let detectedLang = detectLanguage(input);if (editor) {
   let lang = "plaintext";
@@ -144,7 +144,7 @@ if (editor) {
   document.getElementById("output").textContent =
     data.result || data.explanation || "No response";
 
-    switchTab("output");
+    
 }
 function detectLanguage(code) {
   code = code.toLowerCase();
@@ -156,18 +156,4 @@ function detectLanguage(code) {
   if (code.includes("using namespace std")) return "cpp";
 
   return "plaintext";
-}
-
-function switchTab(tab) {
-  document.getElementById("editorTab").style.display =
-    tab === "editor" ? "block" : "none";
-
-  document.getElementById("outputTab").style.display =
-    tab === "output" ? "block" : "none";
-
-  const tabs = document.querySelectorAll(".tab");
-  tabs.forEach(t => t.classList.remove("active"));
-
-  if (tab === "editor") tabs[0].classList.add("active");
-  else tabs[1].classList.add("active");
 }
